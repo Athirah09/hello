@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,17 +10,21 @@
         body {
             font-family: 'Roboto', sans-serif;
             background-image: url('https://athirah09.github.io/hello/brown%20love.jpeg'); /* Default background before name submission */
-            background-size: cover;
+            background-size: cover; /* Make the image cover the entire screen */
+            background-position: center center; /* Center the image */
+            background-attachment: fixed; /* Keeps the background fixed during scroll (optional) */
             color: white;
             text-align: center;
             margin: 0;
             padding: 0;
             transition: background 1s ease-in-out;
         }
+
         h1, h2 {
             font-family: 'Lora', serif;
             color: #ff69b4; /* Pink color for the title */
         }
+
         .container {
             display: flex;
             justify-content: center;
@@ -32,6 +35,7 @@
             border-radius: 25px;
             padding: 40px;
         }
+
         input[type="text"] {
             padding: 15px;
             font-size: 18px;
@@ -45,11 +49,13 @@
             box-sizing: border-box;
             transition: background-color 0.3s;
         }
+
         input[type="text"]:focus {
             background-color: #ffe6f1;
             border-color: #ff69b4;
             outline: none;
         }
+
         button {
             padding: 15px 30px;
             font-size: 18px;
@@ -60,22 +66,27 @@
             color: #fff;
             transition: background-color 0.3s;
         }
+
         button:hover {
             background-color: #ff3385; /* Darker pink on hover */
         }
+
         .greeting-container {
             display: none;
             margin-top: 20px;
         }
+
         .quote {
             font-style: italic;
             font-size: 22px;
             margin-top: 15px;
             color: #ff1493; /* Deep pink color for quotes */
         }
+
         .fade-in {
             animation: fadeIn 1.5s ease-out;
         }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -84,15 +95,33 @@
                 opacity: 1;
             }
         }
+
         .quote-animation {
             animation: bounce 2s ease-in-out infinite;
         }
+
         @keyframes bounce {
             0%, 100% {
                 transform: translateY(0);
             }
             50% {
                 transform: translateY(-10px);
+            }
+        }
+
+        /* For smaller screens like mobile */
+        @media (max-width: 768px) {
+            body {
+                background-size: cover; /* Ensure the image covers the screen */
+                background-position: center center; /* Center the image */
+            }
+        }
+
+        /* For very small screens */
+        @media (max-width: 480px) {
+            body {
+                background-size: contain; /* Ensure the entire image fits on the screen */
+                background-position: center center; /* Still keep the image centered */
             }
         }
     </style>
@@ -139,4 +168,3 @@
 
 </body>
 </html>
-
