@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Page</title>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('image/brown love.jpeg'); /* Default background before name submission */
+            background-size: cover;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            transition: background 1s ease-in-out;
+        }
+        h1, h2 {
+            font-family: 'Lora', serif;
+            color: #ff69b4; /* Pink color for the title */
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.6); /* Semi-transparent background for readability */
+            border-radius: 25px;
+            padding: 40px;
+        }
+        input[type="text"] {
+            padding: 15px;
+            font-size: 18px;
+            width: 80%;
+            max-width: 400px;
+            margin: 10px;
+            border: 2px solid #fff;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            box-sizing: border-box;
+            transition: background-color 0.3s;
+        }
+        input[type="text"]:focus {
+            background-color: #ffe6f1;
+            border-color: #ff69b4;
+            outline: none;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px;
+            background-color: #ff69b4; /* Pink button */
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff3385; /* Darker pink on hover */
+        }
+        .greeting-container {
+            display: none;
+            margin-top: 20px;
+        }
+        .quote {
+            font-style: italic;
+            font-size: 22px;
+            margin-top: 15px;
+            color: #ff1493; /* Deep pink color for quotes */
+        }
+        .fade-in {
+            animation: fadeIn 1.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .quote-animation {
+            animation: bounce 2s ease-in-out infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome! Let's Start Hehehe~!</h1>
+        <input type="text" id="name" placeholder="Enter your name" />
+        <button onclick="greetUser()">Submit</button>
+
+        <div class="greeting-container fade-in" id="greeting-container">
+            <h2 id="greeting"></h2>
+            <p class="quote quote-animation" id="quote"></p>
+        </div>
+    </div>
+
+    <script>
+        function greetUser() {
+            var name = document.getElementById("name").value.trim();
+            var greeting = "";
+            var quote = "";
+
+            // Check for specific names and set background accordingly
+            if (name.toLowerCase() === "dessa" || name.toLowerCase() === "bibble") {
+                greeting = "Good Morning, " + name + "!";
+                quote = "“Enjoy your day but before that, BURN OUR STREAK FIRST! OKAY LOVE U” – MOCHI";
+                document.body.style.backgroundImage = "url('image/cat1.jpeg')"; // Set morning background
+            } else if (name.toLowerCase() === "francisca" || name.toLowerCase() === "candy") {
+                greeting = "Good Night, " + name + "!";
+                quote = "“Sleep early and dream of happy things! Dream of me AHAHAHA. LOVE U” – MOCHI";
+                document.body.style.backgroundImage = "url('image/cat2.jpeg')"; // Set night background
+            } else {
+                greeting = "Hello, " + name + "!";
+                quote = "“Mhm who are you?” – Unknown";
+                document.body.style.backgroundImage = "url('image/cat3.jpeg')"; // Set default background
+            }
+
+            document.getElementById("greeting").innerText = greeting;
+            document.getElementById("quote").innerText = quote;
+            document.getElementById("greeting-container").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
